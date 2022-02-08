@@ -4,7 +4,7 @@
 
 
 
-![](https://i.postimg.cc/6QdvHNc8/Untitled.png)
+[url=https://postimg.cc/8Fzc59qG][img]https://i.postimg.cc/8Fzc59qG/Untitled.png[/img][/url]
 
 
 
