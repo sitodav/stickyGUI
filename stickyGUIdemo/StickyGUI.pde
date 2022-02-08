@@ -21,6 +21,8 @@ class StickyGUI extends PApplet
     new color[]{#00111c, #001523, #001a2c, #002137, #00253e, #002945, #002e4e, #003356, #003a61, #00406c}, 
     new color[]{#ff6d00, #ff8500, #ff9100, #ff9e00, #3a86ff, #0096c7, #0077b6, #023e8a, #03045e}
   };
+  
+  HashMap<Integer,String> SPECIAL_KEYS_EVENTS_MAP = new HashMap<Integer,String>();
 
   JFrame internalJFrame;
   int _width, _height;
@@ -53,6 +55,18 @@ class StickyGUI extends PApplet
     this.mainSketch = mainSketch;
     this.setNewGridSize(gridNumberOfRows, gridNumberOfCols);
     this.calculateElementsSize();
+    
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(ENTER),"ENTER");
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(SHIFT),"SHIFT");
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(CONTROL),"CONTROL");
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(UP),"UP"); 
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(DOWN),"DOWN"); 
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(LEFT),"LEFT"); 
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(RIGHT),"RIGHT"); 
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(TAB),"TAB"); 
+    SPECIAL_KEYS_EVENTS_MAP.put(Integer.valueOf(BACKSPACE),"RIGHT"); 
+    
+    
   }
 
   public StickyGUI( Object[] events, int _width, int _height, int gridNumberOfRows, int gridNumberOfCols, PApplet mainSketch)
@@ -111,13 +125,25 @@ class StickyGUI extends PApplet
 
   public void keyPressed()
   {
+     
     //if there is a button in alternative state, it's waiting for the input to register event code
     for (int i = 0; i< correspondingEvt.size(); i++)
     {   
       if (alternativeInterface.get(i))
       {
-        buttons.get(i).setCaptionLabel(""+key);
-        correspondingEvt.set(i, ""+key); 
+        Integer specialKeyAscii = isSpecialKey();
+        if(null != specialKeyAscii) //it was a special key
+        {  //for the description we use the one mapped (we cannot use the value in the keyCode processing variable because it's the ascii)
+           String specialKeyDescription = SPECIAL_KEYS_EVENTS_MAP.get(keyCode);
+           buttons.get(i).setCaptionLabel(""+specialKeyDescription); 
+           correspondingEvt.set(i, Integer.valueOf(""+keyCode)); //the event to dispatch, associated to the button, is a integer
+        }
+        else //normal key
+        {  //for the description we use the value in key because it's the real char
+           buttons.get(i).setCaptionLabel(""+key);
+           correspondingEvt.set(i, String.valueOf(""+key)); //the event to dispatch, associated to the button, is a string
+        }
+        
         alternativeInterface.set(i, false);
       }
     }
@@ -274,12 +300,25 @@ class StickyGUI extends PApplet
 
 
   /** UTILITY METHODS **/
-
+ 
+  private Integer isSpecialKey()
+  {
+    if(SPECIAL_KEYS_EVENTS_MAP.containsKey(Integer.valueOf(keyCode)))
+    {
+       return Integer.valueOf(keyCode);
+    }
+    return null;
+  }
   private void dispatchEvent(Object event)
   {
-    if (event != null && event instanceof String) //dispatch a key
+     mainSketch.key = 0;
+     mainSketch.keyCode = 0;
+    if (event != null ) //dispatch a key
     {
-      mainSketch.key = (char)((String)event).charAt(0);
+      if(!(event instanceof Integer)) //the registered event was a string, of 1 char (so it was registered as normal key event)
+        mainSketch.key = (char)((String)event).charAt(0);
+      else //if the registered event is an integer, then it was the ascii of a special key
+        mainSketch.keyCode = ((Integer)event).intValue();
     }
 
     mainSketch.keyPressed();
@@ -293,7 +332,7 @@ class StickyGUI extends PApplet
     }
   }  
 
-  private void addButton(String eventName, String processingKeyPressedEvent)
+  private void addButton(String eventName, Object processingKeyPressedEvent)
   {
     int newIdx = buttons.size();
     PVector buttonPosition = calculateXYPositionButton(newIdx);
