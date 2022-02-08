@@ -3,7 +3,7 @@
 # StickyGUI
 
 
-![img](./img.jpg?raw=true "Title")
+![img](img.jpg?raw=true "Title")
 
 
 
