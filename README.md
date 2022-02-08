@@ -10,7 +10,8 @@
 ## Features
 
 - A little pluggable sketch to help user interact with Processing sketches: it allows to interact visually with the mouse and to plug the events to the keyPressed() handler.
-- It supports for now only interaction with single chars events (like a,b,c,1,2...) . KeyCode events (like ENTER) will be added in the next release.
+- It supports interaction with single chars events (like a,b,c,1,2...) and special KeyCode events (like ENTER).
+- Sometimes it has some problems with the resizing. It will be fixed in the next release.
 
  
 
