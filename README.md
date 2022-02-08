@@ -66,8 +66,7 @@ void keyPressed()
 
 ### Links
 
-<https://stickyb1t.start.page/>
-<https://www.instagram.com/stickyb1t/>
+`<my generative coding>` : <https://stickyb1t.start.page/>
 
 
 
