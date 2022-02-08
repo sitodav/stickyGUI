@@ -66,8 +66,8 @@ void keyPressed()
 
 ### Links
 
-`<contacts>` : <https://stickyb1t.start.page/>
-`<controlP5 library>` : <https://sojamo.de/libraries/controlP5/>
+<https://stickyb1t.start.page/>
+<https://www.instagram.com/stickyb1t/>
 
 
 
