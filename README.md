@@ -2,11 +2,14 @@
 
 # StickyGUI
 
+
+
+[Untitled.png](https://postimg.cc/8Fzc59qG)
+
 ## Features
 
 - A little pluggable sketch to help user interact with Processing sketches: it allows to interact visually with the mouse and to plug the events to the keyPressed() handler.
 - It supports for now only interaction with single chars events (like a,b,c,1,2...) . KeyCode events (like ENTER) will be added in the next release.
-
 
  
 
