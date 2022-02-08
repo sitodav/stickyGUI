@@ -3,8 +3,7 @@
 # StickyGUI
 
 
-
-[url=https://postimg.cc/8Fzc59qG][img]https://i.postimg.cc/8Fzc59qG/Untitled.png[/img][/url]
+![img](./img.jpg?raw=true "Title")
 
 
 
