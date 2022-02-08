@@ -3,7 +3,7 @@
 # StickyGUI
 
 
-![img](img.jpg?raw=true "Title")
+![img](https://github.com/sitodav/stickyGUI/blob/develop/img.png?raw=true "Title")
 
 
 
