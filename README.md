@@ -1,2 +1,76 @@
-# stickyGUI
-a little gui for interaction with processing sketches
+
+
+# StickyGUI
+
+## Features
+
+- A little pluggable sketch to help user interact with Processing sketches: it allows to interact visually with the mouse and to plug the events to the keyPressed() handler.
+- It supports for now only interaction with single chars events (like a,b,c,1,2...) . KeyCode events (like ENTER) will be added in the next release.
+
+
+**Table of Contents**
+
+[TOC]
+
+##Installation
+First of all, the sketch requires to download (in Processing) and import the **controP5** library.
+In your processing sketch go to **Sketch > Import Library > Add Library**.
+Type **controlP5**, select it and install.
+Then you can import it going to Sketch > Import Library and selecting it , or using `import controlP5.*; ` in your sketch.
+
+##Use
+To use the library, you must copy the plain code contained in the StickyGUI file in your Processing sketch folder (for now it's not shared as jar, but as plain java code).
+For example if you Processing sketch is called "Foo", and you have it in the Foo folder, copy the StickyGUI file in it.
+Then you can us it right away.
+
+##Example
+ A little sketch example that draw the letter associated with the button clicked on the GUI
+ ####Java　
+
+```java
+/**MAIN SKETCH */
+import controlP5.*;
+StickyGUI guiApplet;
+
+String whatToPrint = null;
+void setup()
+{
+  size(300,300);
+  //WE SET UP THE GUI CONTROLLER
+  //INITIALIZING IT WITH ALREADY TWO KEY BINDING EVENTS
+  guiApplet = new StickyGUI(new Object[]{ "a", "b"  },400,400,4,4,this); 
+  guiApplet.startSketch();
+ 
+}
+
+/*THIS IS CLASSIC PROCESSING STUFF ... */
+void draw()
+{
+  background(0);
+  if(null != whatToPrint)
+  {
+     textAlign(CENTER);
+     textMode(CENTER);
+     stroke(255,255);
+     textSize(32);
+     text(whatToPrint,width*0.5,height*0.5);
+  }
+}
+
+//HERE YOU CATCH keyValue AS ALWAYS
+void keyPressed()
+{ 
+  whatToPrint=""+key;
+}
+```
+
+ 
+
+###Links
+
+`<contacts>` : <https://stickyb1t.start.page/>
+`<controlP5 library>` : <https://sojamo.de/libraries/controlP5/>
+
+
+
+###
