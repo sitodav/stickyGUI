@@ -8,22 +8,20 @@
 - It supports for now only interaction with single chars events (like a,b,c,1,2...) . KeyCode events (like ENTER) will be added in the next release.
 
 
-**Table of Contents**
+ 
 
-[TOC]
-
-##Installation
+## Installation
 First of all, the sketch requires to download (in Processing) and import the **controP5** library.
 In your processing sketch go to **Sketch > Import Library > Add Library**.
 Type **controlP5**, select it and install.
 Then you can import it going to Sketch > Import Library and selecting it , or using `import controlP5.*; ` in your sketch.
 
-##Use
+## Use
 To use the library, you must copy the plain code contained in the StickyGUI file in your Processing sketch folder (for now it's not shared as jar, but as plain java code).
 For example if you Processing sketch is called "Foo", and you have it in the Foo folder, copy the StickyGUI file in it.
 Then you can us it right away.
 
-##Example
+## Example
  A little sketch example that draw the letter associated with the button clicked on the GUI
  ####Java　
 
@@ -66,7 +64,7 @@ void keyPressed()
 
  
 
-###Links
+### Links
 
 `<contacts>` : <https://stickyb1t.start.page/>
 `<controlP5 library>` : <https://sojamo.de/libraries/controlP5/>
