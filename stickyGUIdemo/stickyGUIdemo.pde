@@ -10,7 +10,7 @@ void setup()
   size(300,300);
   //WE SET UP THE GUI CONTROLLER
   //INITIALIZING IT WITH ALREADY TWO KEY BINDING EVENTS
-  guiApplet = new StickyGUI(new Object[]{ "a", "b"   },400,400,4,4,this); 
+  guiApplet = new StickyGUI(new Object[]{ "a", "b" , Integer.valueOf(ENTER)  },400,400,4,4,this); 
   guiApplet.startSketch();
  
 }

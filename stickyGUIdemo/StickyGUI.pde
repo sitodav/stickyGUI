@@ -328,15 +328,36 @@ class StickyGUI extends PApplet
   {
     for (Object evt : evts)
     {
-      addButton((String)evt, (String)evt);
+      if(evt instanceof String)
+      {
+        addButton((String)evt,(String)evt);
+      }
+      else
+      {
+        Integer evtI = Integer.valueOf((int)evt);
+        String specialKeyDescription = SPECIAL_KEYS_EVENTS_MAP.get(evtI);
+        addButton( specialKeyDescription, evtI); //<>//
+      }
+      
+     
     }
   }  
 
-  private void addButton(String eventName, Object processingKeyPressedEvent)
+  private void addButton(String eventName, String processingKeyPressedEvent)
   {
     int newIdx = buttons.size();
     PVector buttonPosition = calculateXYPositionButton(newIdx);
     PVector buttonSize = calculateSizeForButton();
+    buttons.add(controlP5.addButton(eventName).setPosition(buttonPosition.x, buttonPosition.y).setSize((int)buttonSize.x, (int)buttonSize.y));
+    correspondingEvt.add(processingKeyPressedEvent);
+    alternativeInterface.add(false);
+  }
+  
+  private void addButton(String eventName, Integer processingKeyPressedEvent)
+  {
+    int newIdx = buttons.size();
+    PVector buttonPosition = calculateXYPositionButton(newIdx);
+    PVector buttonSize = calculateSizeForButton(); //<>//
     buttons.add(controlP5.addButton(eventName).setPosition(buttonPosition.x, buttonPosition.y).setSize((int)buttonSize.x, (int)buttonSize.y));
     correspondingEvt.add(processingKeyPressedEvent);
     alternativeInterface.add(false);
