@@ -1,4 +1,4 @@
-import processing.awt.PSurfaceAWT.SmoothCanvas; 
+//import processing.awt.PSurfaceAWT.SmoothCanvas; 
 import javax.swing.JFrame;
 import controlP5.*;
 
@@ -24,7 +24,7 @@ class StickyGUI extends PApplet
   
   HashMap<Integer,String> SPECIAL_KEYS_EVENTS_MAP = new HashMap<Integer,String>();
 
-  JFrame internalJFrame;
+  //JFrame internalJFrame;
   int _width, _height;
   PApplet mainSketch;
   ControlP5 controlP5; 
@@ -84,8 +84,8 @@ class StickyGUI extends PApplet
   void setup()
   {
     surface.setResizable(false);   
-    this.internalJFrame = getJFrame(this);
-    this.internalJFrame.setResizable(true);
+    //this.internalJFrame = getJFrame(this);
+    //this.internalJFrame.setResizable(true);
 
     background(0);
     surface.setSize(this._width, this._height); 
@@ -425,7 +425,8 @@ class StickyGUI extends PApplet
   }
 
 
+  /*
   final JFrame getJFrame(PApplet sketch) {
     return (JFrame) ((SmoothCanvas) sketch.getSurface().getNative()).getFrame();
-  }
+  }*/
 }
