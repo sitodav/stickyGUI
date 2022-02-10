@@ -64,7 +64,14 @@ void draw()
 //HERE YOU CATCH keyValue AS ALWAYS
 void keyPressed()
 { 
-  whatToPrint=""+key;
+  if(keyCode == ENTER)
+   whatToPrint= "You Pressed ENTER";
+  else if(keyCode == SHIFT)
+   whatToPrint= "You Pressed SHIFT";
+  else if(key == 'a')
+   whatToPrint= "You Pressed a";
+  else if(key =='b')
+   whatToPrint= "You pressed b";
 }
 ```
 
