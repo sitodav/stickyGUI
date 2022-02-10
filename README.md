@@ -26,6 +26,7 @@ To use the library, you must copy the plain code contained in the StickyGUI file
 For example if you Processing sketch is called "Foo", and you have it in the Foo folder, copy the StickyGUI file in it.
 Then you can us it right away.
 
+
 ## Example
  A little sketch example that draw the letter associated with the button clicked on the GUI
  ####Java　
@@ -41,7 +42,7 @@ void setup()
   size(300,300);
   //WE SET UP THE GUI CONTROLLER
   //INITIALIZING IT WITH ALREADY TWO KEY BINDING EVENTS
-  guiApplet = new StickyGUI(new Object[]{ "a", "b"  },400,400,4,4,this); 
+  guiApplet = new StickyGUI(new Object[]{ "a", "b", Integer.valueOf(ENTER), Integer.valueOf(SHIFT)  },400,400,4,4,this); 
   guiApplet.startSketch();
  
 }
